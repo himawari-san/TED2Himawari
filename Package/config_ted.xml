@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<setting>
+  <corpora dppath="Corpora/TED" name="TED">
+<li name="TED" path="Corpora/TED/corpus"/>
+</corpora>
+
+  <!-- 索引関連 -->
+  <!-- 要素内容への索引 -->
+  <index_cix>
+    <li field_name="キー" label="本文" middle_name="line" name="line" type="normal"/>
+    <li field_name="キー" label="本文(正規表現)" middle_name="line" name="line" type="null"/>
+  </index_cix>
+
+  <!-- 要素への索引 -->
+  <index_eix>
+    <li is_empty="false" middle_name="ted" name="ted" top="true"/>
+    <li isBrowsed="true" is_empty="false" middle_name="talk" name="talk"/>
+    <li is_empty="false" middle_name="line" name="line"/>
+  </index_eix>
+
+  <!-- 要素属性への索引 -->
+  <index_aix>
+    <li argument="lang2" field_name="キー" isCompleteMatch="false" label="第２言語" middle_name="lang2" name="line"/>
+  </index_aix>
+
+<!-- 検索関連オプション -->
+  <!-- KWIC の文脈長 -->
+  <length_context_kwic value="20"/>
+  <!-- 検索時の文脈マッチング範囲 -->
+  <length_context_search value="20"/>
+
+  <!-- 結果レコードのフィールド定義 -->
+  <field_setting>
+    <li align="RIGHT" name="no" type="index" width="30"/>
+    <li align="RIGHT" attribute="_preceding_context" element="_sys" name="前文脈" sort_direction="R" type="preceding_context" width="180"/>
+    <li attribute="_key" element="_sys" name="キー" sort_order="1" type="key" width="80"/>
+    <li attribute="_following_context" element="_sys" name="後文脈" sort_order="2" type="following_context" width="160"/>
+    <li attribute="title" element="talk" name="Title" type="argument" width="100"/>
+    <li attribute="speaker" element="talk" name="Speaker" type="argument" width="100"/>
+    <li attribute="lang2" element="line" name="Language2" type="argument" width="500"/>
+    <li attribute="formatted_time" element="line" name="Time" type="argument" width="100"/>
+    <li attribute="url" element="talk" name="URL" type="argument" width="100"/>
+    <li attribute="time" element="line" name="Time(original)" type="argument" width="0"/>
+  </field_setting>
+
+<!--     コーパスフィールド -->
+
+<!-- 閲覧要素一覧用フィールド -->
+<unit_fields name="Speaker, Title">
+ <li attribute="speaker" element="talk" name="Speaker" width="200"/>
+ <li attribute="title" element="talk" name="Title" width="360"/>
+</unit_fields>
+
+<!-- 統計表用フィールド -->
+  <stat_fields_1 label="Key, Title, Speaker">
+    <li name="キー" width="100"/>
+    <li align="LEFT" name="Title" width="150"/>
+    <li align="LEFT" name="Speaker" width="150"/>
+    <li align="RIGHT" name="頻度" sort_type="numeric" width="80"/>
+  </stat_fields_1>
+
+<!-- 閲覧表示関連オプション -->
+  <!-- ブラウザ -->
+  <browsers label="記事" temp_file="__searched_tmp.xml">
+    <li name="デフォルトブラウザ" os="Windows" path="[[default_browser]]"/>
+    <li name="Microsoft Internet Explorer" option="/c start iexplore" os="Windows" path="cmd"/>
+    <li name="Firefox(Windows)" option="/c start firefox" os="Windows" path="cmd"/>
+    <li name="Chrome(Windows)" option="/c start chrome" os="Windows" path="cmd"/>
+    <li name="デフォルトブラウザ" os="Linux" path="[[default_browser]]"/>
+    <li name="Firefox(Linux)" os="Linux" path="firefox"/>
+    <li name="Chrome(Linux)" os="Linux" path="chrome"/>
+    <li name="デフォルトブラウザ" os="Mac" path="[[default_browser]]"/>
+    <li name="Safari(Mac)" option="-a safari" os="Mac" path="open"/>
+    <li name="Firefox(Mac)" option="-a firefox" os="Mac" path="open"/>
+    <li name="Chrome(Mac)" option="-n -b com.google.Chrome" os="Mac" path="open"/> 
+  </browsers>
+
+
+  <!-- 表示用 XSL -->
+  <xsl_files root_path="Corpora/TED/xslt">
+    <li label="default" name="ted.xsl"/>
+  </xsl_files>
+
+<!-- 字体辞書の URL -->
+<jitaidic url="Corpora/jitaidic.xml"/>
+
+<!-- マニュアルの URL -->
+  <manual url="http://www2.ninjal.ac.jp/lrc/index.php?%C1%B4%CA%B8%B8%A1%BA%F7%A5%B7%A5%B9%A5%C6%A5%E0%A1%D8%A4%D2%A4%DE%A4%EF%A4%EA%A1%D9%2F%CD%F8%CD%D1%BC%D4%A5%DE%A5%CB%A5%E5%A5%A2%A5%EB%2F1_6"/>
+
+<!-- ホームページ URL -->
+  <hp url="http://www2.ninjal.ac.jp/lrc/index.php?%C1%B4%CA%B8%B8%A1%BA%F7%A5%B7%A5%B9%A5%C6%A5%E0%A1%D8%A4%D2%A4%DE%A4%EF%A4%EA%A1%D9"/>
+
+  <!-- フォントサイズ -->
+  <fontsize value="14"/>
+
+
+  <!-- indexing 用のメニュー項目を表示するか否か -->
+  <isIndexingEnable value="true"/>
+
+  <!-- 外部アノテータの設定 ver.1.6から .himawari_annotator_config.xml に移行 -->
+  <!-- インポート時の設定 ver.1.6から .himawari_import_config.xml に移行 -->
+</setting>

@@ -1,0 +1,21 @@
+body {
+background-color: snow;
+margin: 1ex 2em;
+line-height:150%;
+font-family: sans-serif;
+}
+
+span.target_char {
+	font-weight: bold;
+	color: red;
+}	
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+td {
+    padding-bottom: 1ex;
+    padding-right: 1em;
+}
